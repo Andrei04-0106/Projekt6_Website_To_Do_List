@@ -12,7 +12,7 @@ Das Ziel dieses Projekts ist es, Webentwicklung Grundlagen zu üben und zu zeige
 - Javascript
 
 ## Live-Demo
-[Hier kannst du die Website ansehen](https://andrei04-0106.github.io/Projekt6_Website_To_Do_Lists)
+[Hier kannst du die Website ansehen](https://andrei04-0106.github.io/Projekt6_Website_To_Do_List)
 
 ## Feedback
 Ich bin Anfänger und freue mich über Vorschläge und Tipps, wie ich dieses Projekt verbessern kann!
