@@ -23,7 +23,13 @@
           <input type="text" id="inputfield" placeholder="Add your task" />
           <button id="addButton">Add</button>
         </div>
-        <div id="taskListContainer"></div>
+        <div id="taskListContainer">
+          <dialog id="dialogWindow">
+            <h3>Do you really want to delete this Task?</h3>
+            <button id="deleteDialog">Delete</button>
+            <button id="cancelDialog">Cancel</button>
+          </dialog>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

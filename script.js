@@ -2,9 +2,19 @@
 const inputfield = document.getElementById("inputfield");
 const addButton = document.getElementById("addButton");
 const taskListContainer = document.getElementById("taskListContainer");
+const dialog = document.getElementById("dialogWindow");
+const deleteDialog = document.getElementById("deleteDialog");
+const cancelDialog = document.getElementById("cancelDialog");
 
-//Event on click
+let currentTask = null;
 function addList() {
+  const taskInput = inputfield.value.trim();
+
+  if (taskInput === "") {
+    alert("Bitte einen Task eingeben!");
+    return;
+  }
+
   //Elemene erstellen
   const taskList = document.createElement("div");
   taskList.id = "taskList";
@@ -16,7 +26,7 @@ function addList() {
   const listField = document.createElement("p");
   listField.id = "listField";
   listField.htmlFor = "checklist";
-  listField.textContent = inputfield.value;
+  listField.textContent = taskInput;
 
   const deleteButton = document.createElement("button");
   deleteButton.id = "deleteButton";
@@ -31,21 +41,30 @@ function addList() {
   taskList.appendChild(deleteButton);
   taskListContainer.appendChild(taskList);
 
-  //input field leeren
+  //Inputfeld leeren
   inputfield.value = "";
 
-  // Event on click deleteButton
+  //Task in Array hinzufügen
+
+  //Event für Löschen einer Task
   deleteButton.addEventListener("click", function () {
-    taskList.remove();
+    currentTask = taskList;
+    dialog.showModal();
   });
 
-  //Bei einer leeren Liste
-  const emtylist = listField.textContent;
-  if (emtylist === "") {
-    alert("Bitte eine Task eingeben!");
-    taskList.remove();
-    return;
-  }
+  //Event für Löschen Bestätigen
+  deleteDialog.onclick = function () {
+    dialog.close();
+    if (currentTask) {
+      currentTask.remove();
+      currentTask = null;
+    }
+  };
+
+  //Event für Abbrechen
+  cancelDialog.addEventListener("click", function () {
+    dialog.close();
+  });
 
   //function on click To_Do streichen
   function strikethrough(checklist, listField) {
